@@ -1,12 +1,15 @@
 // ignore: file_names
 // ignore: file_names
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, prefer_final_fields
-
 import 'dart:math' as math show pi;
 
 import 'package:collapsible_sidebar/collapsible_sidebar.dart';
+import 'package:course_example2/Ayarlar.dart';
+import 'package:course_example2/Bildirimler.dart';
+import 'package:course_example2/Yardim.dart';
 import 'package:flutter/material.dart';
-import 'package:course_example2/HomePage.dart';
+import 'HomePage.dart';
+import 'Watch.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,6 +20,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'WTECH PROJE',
       home: Scaffold(
+        appBar: AppBar(
+            backgroundColor: Colors.black,
+            title: Center(
+              child: Text("WTECH "),
+            )),
         body: SidebarPage(),
       ),
     );
@@ -60,24 +68,51 @@ class _SidebarPageState extends State<SidebarPage> {
             );
           }),
       CollapsibleItem(
-        text: 'Arama',
-        icon: Icons.search,
-        onPressed: () => setState(() => _headline = 'Search'),
+        text: 'Yardım',
+        icon: Icons.help,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Yardim(),
+            ),
+          );
+        }
       ),
       CollapsibleItem(
-        text: 'Bildirimler',
-        icon: Icons.notifications,
-        onPressed: () => setState(() => _headline = 'Notifications'),
-      ),
+          text: 'Bildirimler',
+          icon: Icons.notifications,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailOne(),
+              ),
+            );
+          }),
       CollapsibleItem(
         text: 'Ayarlar',
         icon: Icons.settings,
-        onPressed: () => setState(() => _headline = 'Settings'),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Ayarlar(),
+            ),
+          );
+        }
       ),
       CollapsibleItem(
-        text: 'Görevler',
-        icon: Icons.event,
-        onPressed: () => setState(() => _headline = 'Event'),
+        text: 'Bizi izleyin',
+        icon: Icons.video_label,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => VideoPlayerScreen(),
+            ),
+          );
+        }
       ),
       CollapsibleItem(
         text: 'Email',
